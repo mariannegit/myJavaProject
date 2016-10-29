@@ -3,7 +3,9 @@
  */
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -27,21 +29,34 @@ public class JavaFX_test extends Application {
         pane.getChildren().add(ring);
 
         primaryStage.show();
+        //int klikicounter = 0;
+
+        final int[] klikicounter = {0};
+
+        ring.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                klikicounter[0]++;
+                System.out.println("Klikk-" + klikicounter[0]);
+            }
+
+        });
 
         ring.setOnMouseClicked(event -> {
-            System.out.println("KLIKK");
 
-            int red = (int)(Math.random()*256);
-            int green = (int)(Math.random()*256);
-            int blue = (int)(Math.random()*256);
+            int red = (int) (Math.random() * 256);
+            int green = (int) (Math.random() * 256);
+            int blue = (int) (Math.random() * 256);
             ring.setFill(Color.rgb(red, green, blue));
 
-            int koordinaat1 = (int)((Math.random()*300)+100);
-            int koordinaat2 = (int)((Math.random()*300)+100);
+            int koordinaat1 = (int) ((Math.random() * 300) + 100);
+            int koordinaat2 = (int) ((Math.random() * 300) + 100);
             ring.setCenterX(koordinaat1);
             ring.setCenterY(koordinaat2);
 
         });
+
 
     }
 }
