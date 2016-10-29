@@ -15,14 +15,14 @@ public class JavaFX_test extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         Pane pane = new Pane();
-        Scene scene = new Scene(pane, 400, 400);
+        Scene scene = new Scene(pane, 500, 500);
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Kliki ringil");
 
-        Circle ring = new Circle(50);
-        ring.setCenterX(100);
-        ring.setCenterY(70);
+        Circle ring = new Circle(100);
+        ring.setCenterX(250);
+        ring.setCenterY(250);
 
         pane.getChildren().add(ring);
 
@@ -30,9 +30,16 @@ public class JavaFX_test extends Application {
 
         ring.setOnMouseClicked(event -> {
             System.out.println("KLIKK");
-            ring.setFill(Color.BLUE);
-            ring.setCenterX(100);
-            ring.setCenterY(150);
+
+            int red = (int)(Math.random()*256);
+            int green = (int)(Math.random()*256);
+            int blue = (int)(Math.random()*256);
+            ring.setFill(Color.rgb(red, green, blue));
+
+            int koordinaat1 = (int)((Math.random()*300)+100);
+            int koordinaat2 = (int)((Math.random()*300)+100);
+            ring.setCenterX(koordinaat1);
+            ring.setCenterY(koordinaat2);
 
         });
 
