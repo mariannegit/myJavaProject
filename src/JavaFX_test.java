@@ -45,9 +45,9 @@ public class JavaFX_test extends Application {
 
         ring.setOnMouseClicked(event -> {
 
-            int red = (int) (Math.random() * 256);
-            int green = (int) (Math.random() * 256);
-            int blue = (int) (Math.random() * 256);
+            int red = (int) ((Math.random() * 50)+200);
+            int green = (int) ((Math.random() * 50)+200);
+            int blue = (int) ((Math.random() * 50)+200);
             ring.setFill(Color.rgb(red, green, blue));
 
             int koordinaat1 = (int) ((Math.random() * 300) + 100);
